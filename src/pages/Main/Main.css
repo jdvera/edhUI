@@ -1,0 +1,43 @@
+.main-container {
+    height: 700px;
+}
+
+.content-container {
+    clear:both;
+    height: 100%;
+}
+
+/* OVERLAY SETTINGS */
+#new-group-form {
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    left: 35%;
+    top: 100px;
+    width: 30%;
+    text-align: center;
+    z-index: 1000;
+    background:white;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #003366;
+    border-radius: 25px;
+    transition: all 0.3s ease 0s;
+    padding: 40px;
+}
+
+#new-group-name {
+    margin-right: 10px;
+}
+
+#overlay-background {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    z-index: 999;
+    background: black;
+    opacity: 0.55;
+}

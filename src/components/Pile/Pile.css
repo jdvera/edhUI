@@ -1,0 +1,35 @@
+.pile {
+    position: relative;
+    float: left;
+    width: 45%;
+    margin: 20px 2.5% 25px;
+}
+
+/* .pile:nth-child(even) {
+    margin-left: 5%;
+} */
+
+.pile img {
+    height: 168px;
+    border: 0 none;
+    display: block;
+    margin: auto;
+}
+
+.pile-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+
+}
+
+.pile h3 {
+    display: block;
+    margin: auto;
+    width: 120.344px;
+    font-weight: 300;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    background: rgb(74, 170, 165, 0.6);
+}
