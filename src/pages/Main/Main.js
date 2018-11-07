@@ -4,7 +4,7 @@ import { DragDropContext } from 'react-dnd';
 
 import "./Main.css";
 import Sidebar from "../../components/Sidebar";
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import Grid from "../../components/Grid";
 import API from "../../utils/API";
 import cardback from "./images/magic_card_back.jpg";
@@ -18,15 +18,15 @@ class Main extends Component {
         resultsArr: [],
         showForm: false,
         cardObj: null,
-        newGroupName: "",
+        newPileName: "",
         pilesArr: [
             { name: "ramp", cards: [] },
+            { name: "card draw", cards: [] },
             { name: "boardwipes", cards: [] },
             { name: "spot removal", cards: [] },
             { name: "sac outlets", cards: [] },
             { name: "lords", cards: [] },
-            { name: "graveyard hate", cards: [] },
-            { name: "card draw", cards: [] }
+            { name: "graveyard hate", cards: [] }
         ],
         idArr: [],
         pileToShow: null
@@ -80,6 +80,7 @@ class Main extends Component {
                         searchMessage: "No results :("
                     });
                 }
+                console.log(err);
             });
         }
         else {
@@ -134,7 +135,7 @@ class Main extends Component {
 
     createNewGroup = () => {
         const newObj = {
-            name: this.state.newGroupName,
+            name: this.state.newPileName,
             cards: [this.state.cardObj]
         }
         const { pilesArr, idArr } = this.state;
@@ -143,7 +144,7 @@ class Main extends Component {
         this.setState({
             cardObj: null,
             showForm: false,
-            newGroupName: "",
+            newPileName: "",
             pilesArr,
             idArr
         })
@@ -152,15 +153,15 @@ class Main extends Component {
     render() {
         return (
             <div className="main-container">
-                <Header handleInputChange={this.handleInputChange} handleSearch={this.handleSearch} />
+                {/* <Header  handleSearch={this.handleSearch} /> */}
                 <div className="content-container">
-                    <Grid state={this.state} handleDrop={this.handleDrop} />
+                    <Grid state={this.state} handleDrop={this.handleDrop} handleSearch={this.handleSearch} handleInputChange={this.handleInputChange}/>
                     <Sidebar getCommander={this.getCommander} showPileContents={this.showPileContents} state={this.state} />
                 </div>
 
                 <div id="new-group-form" style={{ display: this.state.showForm ? "block" : "none" }}>
-                    New Group Name: <br />
-                    <input id="new-group-name" name="newGroupName" value={this.state.newGroupName} onChange={this.handleInputChange} />
+                    New Pile Name: <br/>
+                    <input id="new-group-name" name="newPileName" value={this.state.newPileName} onChange={this.handleInputChange} />
                     <button onClick={this.createNewGroup}>Submit</button>
                 </div>
                 <div id="overlay-background" style={{ display: this.state.showForm ? "block" : "none" }} onClick={() => this.handleOverlay({ showForm: false })}></div>

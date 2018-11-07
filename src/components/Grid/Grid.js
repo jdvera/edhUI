@@ -4,6 +4,9 @@ import Card from "../Card";
 
 const Grid = props =>
     <div className="grid-container">
+        <input name="search" className="search-input" placeholder="Search" onChange={props.handleInputChange} />
+        <button className="search-button" onClick={props.handleSearch}>Submit</button>
+        <br className="break"/>
         {props.state.searchMessage ? <p>{props.state.searchMessage}</p> :
             (props.state.pileToShow !== null ?
             props.state.pilesArr[props.state.pileToShow].cards.map((card, index) =>

@@ -1,15 +1,4 @@
-.search-input {
-    position: absolute;
-    left: 0px;
-    width: 200px;
-    margin-top: 4px;
-} 
 
-.search-button {
-    position: absolute;
-    left: 207px;
-    margin-top: 4px;
-}
 
 .header-container {
     position: relative;
